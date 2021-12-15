@@ -28,13 +28,13 @@ public class ProdcutController {
 	@Autowired
 	private ProductService service;
 	
-	@PostMapping("/addProduct")
+	@PostMapping("/product")
 	public Product addProduct(@RequestBody Product product)
 	{
 		return service.saveProduct(product);
 	}
 	
-	@PostMapping("/addProducts")
+	@PostMapping("/products")
 	public List<Product> addProduct(@RequestBody List<Product> products)
 	{
 		return service.saveProduct(products);
@@ -44,25 +44,25 @@ public class ProdcutController {
 	{
 		return service.getProduct();
 	}
-	@GetMapping("/productById/{id}")
+	@GetMapping("/products/{id}")
 	public Product findProductById(@PathVariable int id)
 	{
 		return service.getProductById(id);
 	}
-	@GetMapping("/product/{name}")
+	@GetMapping("/products/{name}")
 	public Product findProductByName(@PathVariable String name)
 	{
-	return service.getProductByName( name);	
+	return service.getProductByName(name);	
 	}
 	
-	@PutMapping("/update")
+	@PutMapping("/products/{id}")
 	public Product updateProduct(@RequestBody Product product)
 	{
 		return service.updateProduct(product);
 		
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/products/{id}")
 	public String deleteProduct(@PathVariable int id)
 	{
 		return service.deleteProduct(id);
